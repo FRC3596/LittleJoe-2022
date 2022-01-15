@@ -10,6 +10,9 @@ public class AutoModeSub extends Subsystem {
     
     public void Drive2Feet() {
         RobotMappings.driveTrainSub.SetSpeed(0.5);
+
+        // TODO: Find a better way to delay an amount of time
+
         RobotMappings.driveTrainSub.SetSpeed(0);
     }
 }
