@@ -6,4 +6,7 @@ public class AutoModeSub extends Subsystem {
     @Override
     protected void initDefaultCommand() {}
     
+    public void Drive2Feet() {
+        
+    }
 }
