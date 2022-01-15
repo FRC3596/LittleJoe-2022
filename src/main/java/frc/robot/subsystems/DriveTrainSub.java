@@ -27,7 +27,7 @@ public class DriveTrainSub extends Subsystem {
     public void SetSpeed(double s) {
         RightBottom.set(ControlMode.PercentOutput, s);
         RightTop.set(ControlMode.PercentOutput, s);
-        LeftBottom.set(ControlMode.PercentOutput, s);
-        LeftTop.set(ControlMode.PercentOutput, s);
+        LeftBottom.set(ControlMode.PercentOutput, s*-1);
+        LeftTop.set(ControlMode.PercentOutput, s*-1);
     }
 }
