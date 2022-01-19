@@ -4,10 +4,14 @@ import edu.wpi.first.wpilibj.TimedRobot;
 
 public class Robot extends TimedRobot {
   @Override
-  public void robotInit() {}
+  public void robotInit() {
+    Delay.Init(); // Initalise delay routine timer
+  }
 
   @Override
-  public void robotPeriodic() {}
+  public void robotPeriodic() {
+    Delay.Execute(); // Execute delayed tasks
+  }
 
   @Override
   public void autonomousInit() {

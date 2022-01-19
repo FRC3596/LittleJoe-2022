@@ -1,8 +1,8 @@
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-
+import frc.robot.Delay;
 import frc.robot.RobotMappings;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class AutoModeSub extends Subsystem {
     @Override
@@ -10,9 +10,6 @@ public class AutoModeSub extends Subsystem {
     
     public void Drive2Feet() {
         RobotMappings.driveTrainSub.SetSpeed(0.5);
-
-        // TODO: Find a better way to delay an amount of time
-
-        RobotMappings.driveTrainSub.SetSpeed(0);
+        Delay.DelayMotorSpeed(2, 0);
     }
 }
