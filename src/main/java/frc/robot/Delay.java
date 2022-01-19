@@ -1,6 +1,7 @@
 package frc.robot;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -13,12 +14,17 @@ public class Delay {
     }
 
     public static void Execute() {
-        MotorSpeedDelays.forEach((offset, speed) -> {
-            if (clock.get() > offset) {
-                RobotMappings.driveTrainSub.SetSpeed(speed);
-                MotorSpeedDelays.remove(offset);
+        Iterator<Double> MotorSpeedDleaysIt = MotorSpeedDelays.keySet().iterator();
+
+        while (MotorSpeedDleaysIt.hasNext()) {
+            Double key = MotorSpeedDleaysIt.next();
+            Double value = MotorSpeedDelays.get(key);
+
+            if (clock.get() > value) {
+                RobotMappings.driveTrainSub.SetSpeed(value);
+                MotorSpeedDleaysIt.remove();
             }
-        });
+        }
     }
 
     public static void Init() {
