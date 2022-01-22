@@ -3,8 +3,8 @@ The FRC Robotics Competition robot for 2022 Rapid Recharge
 
 ## Controller
 ---
-- Left Joystick          > Arcade drive
-- Right Triggure         > Lift hopper
-- Right Triggure Disable > Drop hopper
-- Left Triggure          > Activate pickup motors
-- Left Triggure Disable  > Deactivate pickup motors
+- Left Joystick         > Arcade drive
+- Right Trigger         > Lift hopper
+- Right Trigger Disable > Drop hopper
+- Left Trigger          > Activate pickup motors
+- Left Trigger Disable  > Deactivate pickup motors
