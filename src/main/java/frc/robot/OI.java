@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import frc.robot.commands.*;
+import frc.robot.subsystems.*;
+
 public class OI {
 	/*
 	Setup for Joystick class.
@@ -55,18 +58,20 @@ public class OI {
 	
 	public OI()
 	{
-		RT.whenactive();
-		//lift hopper/arms
-		RT.wheninactive();
-		//drop hopper/arms
-		LT.whenactive();
-		//activate pickup motors
-		LT.wheninactive();
-		//deactivate pickup motors
-		LB.whenactive();
-		//fire loaded balls
-		LB.wheninactive();
-		//stop firing loaded balls
+		RT.whenActive(
+			new BallLift(RobotMappings.ballAssemblySub, true)); // lift hopper/arms
+		RT.whenInactive(
+			new BallLift(RobotMappings.ballAssemblySub, false)); // drop hopper/arms
+
+		LT.whenActive(
+			new BallPickup(RobotMappings.ballAssemblySub, true)); // activate pickup motors
+		LT.whenInactive(
+			new BallPickup(RobotMappings.ballAssemblySub, false)); // deactivate pickup motors
+
+		LB.whenActive(
+			new BallLaunch(RobotMappings.ballAssemblySub, true)); // fire loaded balls
+		LB.whenInactive(
+			new BallLaunch(RobotMappings.ballAssemblySub, false)); // stop firing loaded balls
 	}
 }
 

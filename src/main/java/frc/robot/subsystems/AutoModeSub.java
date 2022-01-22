@@ -5,6 +5,7 @@ import frc.robot.RobotMappings;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class AutoModeSub extends Subsystem {
+
     @Override
     protected void initDefaultCommand() {}
     
@@ -12,4 +13,5 @@ public class AutoModeSub extends Subsystem {
         RobotMappings.driveTrainSub.SetSpeed(0.5);
         Delay.DelayMotorSpeed(2, 0);
     }
+    
 }
