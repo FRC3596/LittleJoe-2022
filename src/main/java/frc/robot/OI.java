@@ -55,7 +55,18 @@ public class OI {
 	
 	public OI()
 	{
-		
+		RT.whenactive();
+		//lift hopper/arms
+		RT.wheninactive();
+		//drop hopper/arms
+		LT.whenactive();
+		//activate pickup motors
+		LT.wheninactive();
+		//deactivate pickup motors
+		LB.whenactive();
+		//fire loaded balls
+		LB.wheninactive();
+		//stop firing loaded balls
 	}
 }
 
