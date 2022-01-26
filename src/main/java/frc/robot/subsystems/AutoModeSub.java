@@ -10,7 +10,7 @@ public class AutoModeSub extends Subsystem {
     protected void initDefaultCommand() {}
     
     public void Drive2Feet() {
-        RobotMappings.driveTrainSub.SetSpeed(0.5);
+        RobotMappings.driveTrainSub.SetSpeed(0.5); // TODO; reverse if backwards
         Delay.DelayMotorSpeed(2, 0);
     }
     
