@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import frc.robot.commands.*;
-import frc.robot.subsystems.*;
 
 public class OI {
 	/*

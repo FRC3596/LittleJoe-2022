@@ -1,7 +1,11 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.RobotMappings;
 import frc.robot.subsystems.BallAssemblySub;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 public class BallLaunch extends Command {
 
@@ -17,7 +21,11 @@ public class BallLaunch extends Command {
 
     @Override
     public void initialize() {
-        
+        if (Active) {
+            RobotMappings.ballPuller.set(ControlMode.PercentOutput, -0.5);
+        } else {
+            RobotMappings.ballPuller.set(ControlMode.PercentOutput, 0);
+        }
     }
 
     @Override
