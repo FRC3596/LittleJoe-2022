@@ -15,6 +15,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
+    Delay.Enable();
     RobotMappings.autoModeSub.Drive2Feet();
   }
 
@@ -22,7 +23,9 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {}
 
   @Override
-  public void teleopInit() {}
+  public void teleopInit() {
+    Delay.Enable();
+  }
 
   @Override
   public void teleopPeriodic() {
@@ -30,13 +33,17 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+    Delay.Disable();
+  }
 
   @Override
   public void disabledPeriodic() {}
 
   @Override
-  public void testInit() {}
+  public void testInit() {
+    Delay.Enable();
+  }
 
   @Override
   public void testPeriodic() {}
