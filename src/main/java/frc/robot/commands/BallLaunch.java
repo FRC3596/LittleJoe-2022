@@ -3,8 +3,6 @@ package frc.robot.commands;
 import frc.robot.RobotMappings;
 import frc.robot.subsystems.BallAssemblySub;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class BallLaunch extends Command {

@@ -1,0 +1,19 @@
+{
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/AutoModeSub": "Subsystem",
+      "/LiveWindow/BallAssemblySub": "Subsystem",
+      "/LiveWindow/DriveTrainSub": "Subsystem",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler"
+    }
+  },
+  "NetworkTables": {
+    "LiveWindow": {
+      "DriveTrainSub": {
+        "open": true
+      },
+      "open": true
+    }
+  }
+}
