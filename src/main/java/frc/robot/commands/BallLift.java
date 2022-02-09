@@ -21,9 +21,9 @@ public class BallLift extends Command {
     @Override
     public void initialize() {
         if (Active) {
-            RobotMappings.liftMotor.set(ControlMode.PercentOutput, 0.5);
+           RobotMappings.ballLiftSub.Lift(true);
         } else {
-            RobotMappings.liftMotor.set(ControlMode.PercentOutput, 0);
+           RobotMappings.ballLiftSub.Lift(false);
         }
     }
 

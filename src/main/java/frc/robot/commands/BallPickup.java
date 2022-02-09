@@ -21,9 +21,9 @@ public class BallPickup extends Command {
     @Override
     public void initialize() {
         if (Active) {
-            RobotMappings.ballPuller.set(ControlMode.PercentOutput, 0.5);
+           RobotMappings.ballLiftSub.Gather(true);
         } else {
-            RobotMappings.ballPuller.set(ControlMode.PercentOutput, 0);
+           RobotMappings.ballLiftSub.Gather(false);
         }
     }
 
