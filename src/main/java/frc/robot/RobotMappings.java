@@ -10,3 +10,17 @@ public class RobotMappings {
 
     public static OI m_oi = new OI();
 }
+
+class DelayItem {
+    public DelayItem(boolean isbot, int id, double o, double s) {
+        IsBot = isbot;
+        ID = id;
+        delay = o;
+        speed = s;
+    }
+
+    public final boolean IsBot;
+    public final int ID;
+    public final double delay;
+    public final double speed;
+}

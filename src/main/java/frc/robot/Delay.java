@@ -1,13 +1,17 @@
 package frc.robot;
 
-import java.util.HashMap;
 import java.util.Iterator;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import java.util.ArrayList;
 
 import edu.wpi.first.wpilibj.Timer;
 
 public class Delay {
     private static Timer clock = new Timer();
-    private static HashMap<Double, Double> MotorSpeedDelays = new HashMap<>();
+    private static ArrayList<DelayItem> MotorDelays = new ArrayList<DelayItem>();
     private static boolean Enabled = true;
    
     public static void Enable() {
@@ -18,25 +22,45 @@ public class Delay {
         Enabled = false;
     }
 
-    public static void DelayMotorSpeed(double offset, double speed) {
-        MotorSpeedDelays.put(clock.get() + offset, speed);
+    public static void BotSpeed(double offset, double speed) {
+        MotorDelays.add(new DelayItem(
+            true, 
+            0, 
+            clock.get() + offset, 
+            speed
+        ));
+    }
+
+    public static void MotorSpeed(int id, double offset, double speed) {
+        MotorDelays.add(new DelayItem(
+            false,
+            id,
+            clock.get() + offset,
+            speed)
+        );
     }
 
     public static void Execute() {
         if (!Enabled) {
-            MotorSpeedDelays.clear();
+            MotorDelays.clear();
             return;
         }
 
-        Iterator<Double> MotorSpeedDleaysIt = MotorSpeedDelays.keySet().iterator();
+        Iterator<DelayItem> MotorDleaysIt = MotorDelays.iterator();
 
-        while (MotorSpeedDleaysIt.hasNext()) {
-            Double key = MotorSpeedDleaysIt.next();
-            Double value = MotorSpeedDelays.get(key);
+        while (MotorDleaysIt.hasNext()) {
+            DelayItem key = MotorDleaysIt.next();
 
-            if (clock.get() > value) {
-                RobotMappings.driveTrainSub.SetSpeed(value);
-                MotorSpeedDleaysIt.remove();
+            if (clock.get() > key.delay) {
+                if (key.IsBot) {
+                    RobotMappings.driveTrainSub.SetSpeed(key.speed);
+    
+                    MotorDleaysIt.remove();
+                    continue;
+                }
+
+                new TalonSRX(key.ID).set(ControlMode.PercentOutput, key.speed);
+                MotorDleaysIt.remove();
             }
         }
     }
