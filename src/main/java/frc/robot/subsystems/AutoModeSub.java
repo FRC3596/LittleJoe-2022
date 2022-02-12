@@ -17,7 +17,11 @@ public class AutoModeSub extends Subsystem {
     public void TakeADump() {
         Delay.MotorSpeed(5, 0, 0.5);  // Start lift
         Delay.MotorSpeed(5, 2, 0);    // Stop lift after 2 seconds
+        
         Delay.MotorSpeed(4, 3, -0.5); // Shoot balls
         Delay.MotorSpeed(4, 5, 0);    // Stop shooting after 2 seconds
+
+        Delay.MotorSpeed(5, 6, -0.5); // Reverse lift
+        Delay.MotorSpeed(5, 7, 0);    // Stop lift
     }
 }
