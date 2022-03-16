@@ -5,12 +5,12 @@ import frc.robot.subsystems.BallAssemblySub;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class BallLaunch extends Command {
+public class BallShoot extends Command {
 
     private final BallAssemblySub Sub;
     private final Boolean Active;
 
-    public BallLaunch(BallAssemblySub s, boolean a) {
+    public BallShoot(BallAssemblySub s, boolean a) {
         Sub = s;
         requires(Sub);
 

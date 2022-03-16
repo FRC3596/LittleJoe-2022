@@ -1,50 +1,81 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallLiftSub extends Subsystem {
-    public static TalonSRX ballPuller = new TalonSRX(4);
-    public static TalonSRX liftMotor = new TalonSRX(5);
+    public static CANSparkMax ballMover = new CANSparkMax(4, MotorType.kBrushless);
+    // public static TalonSRX ballMover = new TalonSRX(4);
+    public static CANSparkMax liftMotorLeft = new CANSparkMax(5, MotorType.kBrushless);
+    // public static TalonSRX liftMotorLeft = new TalonSRX(5);
+    public static CANSparkMax liftMotorRight = new CANSparkMax(6, MotorType.kBrushless);
+    // public static TalonSRX liftMotorRight = new TalonSRX(6);
 
-    public static boolean LiftStatus = false;
-    public static boolean ShootStatus = false;
-    public static boolean GatherStatus = false;
+    public final int LiftStatus = 0;
+    public final int ShootStatus = 1;
+    public final int GatherStatus = 2;
+
+    private static boolean LiftStatusInd = false;
+    private static boolean ShootStatusInd = false;
+    private static boolean GatherStatusInd = false;
+
+    public BallLiftSub() {
+        // Reset default settings on init
+        ballMover.restoreFactoryDefaults();
+        liftMotorLeft.restoreFactoryDefaults();
+        liftMotorRight.restoreFactoryDefaults();
+    }
 
     @Override
     protected void initDefaultCommand() {}
 
+    public boolean GetStatus(int value) {
+        switch (value) {
+            case LiftStatus:
+                return LiftStatusInd;
+            case ShootStatus:
+                return ShootStatusInd;
+            case GatherStatus:
+                return GatherStatusInd;
+        }
+        return false;
+    }
+
     public void Lift (boolean Status) {
         if (Status) {
-            liftMotor.set(ControlMode.PercentOutput, 0.5);
+            liftMotorLeft.set(0.5);
+            liftMotorRight.set(0.5);
         } else {
-            liftMotor.set(ControlMode.PercentOutput, 0);
+            liftMotorLeft.set(0);
+            liftMotorRight.set(0);
         }
 
-        LiftStatus = Status;
+        LiftStatusInd = Status;
     }
 
     public void Shoot(boolean Status) {
+        Gather(false);
+
         if (Status) {
-            ballPuller.set(ControlMode.PercentOutput, -0.5);
+            ballMover.set(-0.5); // TODO: Flip negative to gather if backwards
         } else {
-            ballPuller.set(ControlMode.PercentOutput, 0);
+            ballMover.set(0);
         }
 
-        ShootStatus = Status;
+        ShootStatusInd = Status;
     }
 
     public void Gather(boolean Status) {
+        Shoot(false);
+
         if (Status) {
-            ballPuller.set(ControlMode.PercentOutput, 0.5);
+            ballMover.set(0.5);
         } else {
-            ballPuller.set(ControlMode.PercentOutput, 0);
+            ballMover.set(0);
         }
 
-        GatherStatus = Status;
+        GatherStatusInd = Status;
     }
 }
-
-

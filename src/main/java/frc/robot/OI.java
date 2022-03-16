@@ -68,9 +68,9 @@ public class OI {
 			new BallPickup(RobotMappings.ballAssemblySub, false)); // deactivate pickup motors
 
 		LB.whenActive(
-			new BallLaunch(RobotMappings.ballAssemblySub, true)); // fire loaded balls
+			new BallShoot(RobotMappings.ballAssemblySub, true)); // fire loaded balls
 		LB.whenInactive(
-			new BallLaunch(RobotMappings.ballAssemblySub, false)); // stop firing loaded balls
+			new BallShoot(RobotMappings.ballAssemblySub, false)); // stop firing loaded balls
 	}
 }
 

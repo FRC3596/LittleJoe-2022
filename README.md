@@ -18,4 +18,5 @@ The FRC Robotics Competition robot for 2022 Rapid Recharge
 - 2 > Right Top Motor
 - 3 > Right Bottom Motor
 - 4 > Ball puller
-- 5 > Lift motor
+- 5 > Lift motor - Left
+- 6 > Lift motor - Right
