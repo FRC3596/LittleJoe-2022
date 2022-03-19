@@ -2,14 +2,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.RobotMappings;
-import frc.robot.subsystems.BallAssemblySub;
+import frc.robot.subsystems.BallLiftSub;
 
 public class BallLift extends Command {
 
-    private final BallAssemblySub Sub;
+    private final BallLiftSub Sub;
     private final boolean Active;
 
-    public BallLift(BallAssemblySub s, boolean a) {
+    public BallLift(BallLiftSub s, boolean a) {
         Sub = s;
         requires(Sub);
 

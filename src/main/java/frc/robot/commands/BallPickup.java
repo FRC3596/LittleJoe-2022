@@ -2,14 +2,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.RobotMappings;
-import frc.robot.subsystems.BallAssemblySub;
+import frc.robot.subsystems.BallLiftSub;
 
 public class BallPickup extends Command {
 
-    private final BallAssemblySub Sub;
+    private final BallLiftSub Sub;
     private final boolean Active;
 
-    public BallPickup(BallAssemblySub s, boolean a) {
+    public BallPickup(BallLiftSub s, boolean a) {
         Sub = s;
         requires(Sub);
 
