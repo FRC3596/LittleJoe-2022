@@ -1,12 +1,14 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallLiftSub extends Subsystem {
-    public static CANSparkMax ballMover = new CANSparkMax(4, MotorType.kBrushless);
+    public static TalonSRX ballMover = new TalonSRX(4);
     // public static TalonSRX ballMover = new TalonSRX(4);
     public static CANSparkMax liftMotorLeft = new CANSparkMax(5, MotorType.kBrushless);
     // public static TalonSRX liftMotorLeft = new TalonSRX(5);
@@ -23,7 +25,6 @@ public class BallLiftSub extends Subsystem {
 
     public BallLiftSub() {
         // Reset default settings on init
-        ballMover.restoreFactoryDefaults();
         liftMotorLeft.restoreFactoryDefaults();
         liftMotorRight.restoreFactoryDefaults();
     }
@@ -59,9 +60,9 @@ public class BallLiftSub extends Subsystem {
         Gather(false);
 
         if (Status) {
-            ballMover.set(-0.5); // TODO: Flip negative to gather if backwards
+            ballMover.set(ControlMode.PercentOutput, -0.5); // TODO: Flip negative to gather if backwards
         } else {
-            ballMover.set(0);
+            ballMover.set(ControlMode.PercentOutput, 0);
         }
 
         ShootStatusInd = Status;
@@ -71,9 +72,9 @@ public class BallLiftSub extends Subsystem {
         Shoot(false);
 
         if (Status) {
-            ballMover.set(0.5);
+            ballMover.set(ControlMode.PercentOutput, 0.5);
         } else {
-            ballMover.set(0);
+            ballMover.set(ControlMode.PercentOutput, 0);
         }
 
         GatherStatusInd = Status;
