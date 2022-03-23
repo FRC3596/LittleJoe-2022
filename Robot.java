@@ -1,7 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
   @Override
@@ -30,11 +30,12 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
+    // RobotMappings.ballLiftSub.Lift(true);
+    RobotMappings.ballLiftSub.SetBallMover(OI.RIGHT_X_AXIS());
     RobotMappings.ballLiftSub.SetArmLift(OI.RIGHT_Y_AXIS());
 
     RobotMappings.driveTrainSub.Drive();
-
-    Scheduler.getInstance().run();
+    CommandScheduler.getInstance().run();
   }
 
   @Override

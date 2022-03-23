@@ -44,27 +44,9 @@ public class BallLiftSub extends Subsystem {
         return false;
     }
 
-    public void Lift (boolean Status) {
-        System.out.println("Lifting...");
-
-        if (Status) {
-            System.out.println("Starting");
-            liftMotorLeft.set(0.1);
-            liftMotorRight.set(0.1);
-        } else {
-            System.out.println("Stopping");
-            liftMotorLeft.set(0);
-            liftMotorRight.set(0);
-        }
-
-        LiftStatusInd = Status;
-    }
-
     public void Shoot(boolean Status) {
-        Gather(false);
-
         if (Status) {
-            ballMover.set(ControlMode.PercentOutput, -0.5); // TODO: Flip negative to gather if backwards
+            ballMover.set(ControlMode.PercentOutput, -1); // TODO: Flip negative to gather if backwards
         } else {
             ballMover.set(ControlMode.PercentOutput, 0);
         }
@@ -73,19 +55,13 @@ public class BallLiftSub extends Subsystem {
     }
 
     public void Gather(boolean Status) {
-        Shoot(false);
-
         if (Status) {
-            ballMover.set(ControlMode.PercentOutput, 0.5);
+            ballMover.set(ControlMode.PercentOutput, 1);
         } else {
             ballMover.set(ControlMode.PercentOutput, 0);
         }
 
         GatherStatusInd = Status;
-    }
-
-    public void SetBallMover(double value) {
-        ballMover.set(ControlMode.PercentOutput, value);
     }
 
     public void SetArmLift(double value) {
