@@ -57,14 +57,16 @@ public class OI {
 	
 	public OI()
 	{
+		System.out.println("OI init");
+
 		RT.whenActive(
 			new BallLift(RobotMappings.ballLiftSub, true)); // lift hopper/arms
 		RT.whenInactive(
 			new BallLift(RobotMappings.ballLiftSub, false)); // drop hopper/arms
 
-		LT.whenActive(
+		A.whenActive(
 			new BallPickup(RobotMappings.ballLiftSub, true)); // activate pickup motors
-		LT.whenInactive(
+		A.whenInactive(
 			new BallPickup(RobotMappings.ballLiftSub, false)); // deactivate pickup motors
 
 		LB.whenActive(

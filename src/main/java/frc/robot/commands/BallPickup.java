@@ -18,11 +18,7 @@ public class BallPickup extends Command {
 
     @Override
     public void initialize() {
-        if (Active) {
-           RobotMappings.ballLiftSub.Gather(true);
-        } else {
-           RobotMappings.ballLiftSub.Gather(false);
-        }
+        RobotMappings.ballLiftSub.Gather(Active);
     }
 
     @Override

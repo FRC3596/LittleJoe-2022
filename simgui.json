@@ -1,15 +1,36 @@
 {
+  "HALProvider": {
+    "Other Devices": {
+      "SPARK MAX [5]": {
+        "header": {
+          "open": true
+        }
+      },
+      "SPARK MAX [6]": {
+        "header": {
+          "open": true
+        }
+      }
+    }
+  },
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
       "/LiveWindow/AutoModeSub": "Subsystem",
       "/LiveWindow/BallAssemblySub": "Subsystem",
+      "/LiveWindow/BallLiftSub": "Subsystem",
       "/LiveWindow/DriveTrainSub": "Subsystem",
       "/LiveWindow/Ungrouped/Scheduler": "Scheduler"
     }
   },
   "NetworkTables": {
     "LiveWindow": {
+      "AutoModeSub": {
+        "open": true
+      },
+      "BallLiftSub": {
+        "open": true
+      },
       "DriveTrainSub": {
         "open": true
       },

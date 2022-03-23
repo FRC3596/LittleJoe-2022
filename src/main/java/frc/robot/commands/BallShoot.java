@@ -19,11 +19,7 @@ public class BallShoot extends Command {
 
     @Override
     public void initialize() {
-        if (Active) {
-           RobotMappings.ballLiftSub.Shoot(true);
-        } else {
-           RobotMappings.ballLiftSub.Shoot(false);
-        }
+        RobotMappings.ballLiftSub.Shoot(Active);
     }
 
     @Override

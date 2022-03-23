@@ -18,11 +18,8 @@ public class BallLift extends Command {
 
     @Override
     public void initialize() {
-        if (Active) {
-           RobotMappings.ballLiftSub.Lift(true);
-        } else {
-           RobotMappings.ballLiftSub.Lift(false);
-        }
+        System.out.println("Ball Lift command executed");
+        RobotMappings.ballLiftSub.Lift(Active);
     }
 
     @Override

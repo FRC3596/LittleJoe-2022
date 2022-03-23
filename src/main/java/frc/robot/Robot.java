@@ -29,6 +29,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
+    // RobotMappings.ballLiftSub.Lift(true);
+    RobotMappings.ballLiftSub.SetBallMover(OI.RIGHT_X_AXIS());
+    RobotMappings.ballLiftSub.SetArmLift(OI.RIGHT_Y_AXIS());
+
     RobotMappings.driveTrainSub.Drive();
   }
 

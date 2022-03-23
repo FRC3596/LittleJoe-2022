@@ -1,14 +1,14 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallLiftSub extends Subsystem {
-    public static TalonSRX ballMover = new TalonSRX(4);
+    public static VictorSPX ballMover = new VictorSPX(4);
     // public static TalonSRX ballMover = new TalonSRX(4);
     public static CANSparkMax liftMotorLeft = new CANSparkMax(5, MotorType.kBrushless);
     // public static TalonSRX liftMotorLeft = new TalonSRX(5);
@@ -45,10 +45,14 @@ public class BallLiftSub extends Subsystem {
     }
 
     public void Lift (boolean Status) {
+        System.out.println("Lifting...");
+
         if (Status) {
-            liftMotorLeft.set(0.5);
-            liftMotorRight.set(0.5);
+            System.out.println("Starting");
+            liftMotorLeft.set(0.1);
+            liftMotorRight.set(0.1);
         } else {
+            System.out.println("Stopping");
             liftMotorLeft.set(0);
             liftMotorRight.set(0);
         }
@@ -78,5 +82,14 @@ public class BallLiftSub extends Subsystem {
         }
 
         GatherStatusInd = Status;
+    }
+
+    public void SetBallMover(double value) {
+        ballMover.set(ControlMode.PercentOutput, value);
+    }
+
+    public void SetArmLift(double value) {
+        liftMotorLeft.set(value);
+        liftMotorRight.set(value*-1);
     }
 }
