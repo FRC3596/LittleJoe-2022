@@ -2,6 +2,8 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMappings;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -61,7 +63,19 @@ public class BallLiftSub extends Subsystem {
     }
 
     public void SetArmLift(double value) {
-        liftMotorLeft.set(value);
-        liftMotorRight.set(value*-1);
+        if (!RobotMappings.ArmTopStatus.get() && value < 0)
+        {
+            liftMotorLeft.set(0);
+            liftMotorRight.set(0);
+        }
+        else if (!RobotMappings.ArmBottomStatus.get() && value > 0)
+        {
+            liftMotorLeft.set(0);
+            liftMotorRight.set(0);
+        
+        } else {
+            liftMotorLeft.set(value);
+            liftMotorRight.set(value*-1);
+        }
     }
 }

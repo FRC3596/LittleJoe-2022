@@ -1,5 +1,10 @@
 {
   "HALProvider": {
+    "DIO": {
+      "window": {
+        "visible": true
+      }
+    },
     "Other Devices": {
       "SPARK MAX [5]": {
         "header": {
@@ -20,6 +25,8 @@
       "/LiveWindow/BallAssemblySub": "Subsystem",
       "/LiveWindow/BallLiftSub": "Subsystem",
       "/LiveWindow/DriveTrainSub": "Subsystem",
+      "/LiveWindow/Ungrouped/DigitalInput[0]": "Digital Input",
+      "/LiveWindow/Ungrouped/DigitalInput[1]": "Digital Input",
       "/LiveWindow/Ungrouped/Scheduler": "Scheduler"
     }
   },
