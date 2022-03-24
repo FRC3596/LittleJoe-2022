@@ -74,8 +74,8 @@ public class BallLiftSub extends Subsystem {
             liftMotorRight.set(0);
         
         } else {
-            liftMotorLeft.set(value);
-            liftMotorRight.set(value*-1);
+            liftMotorLeft.set(value/2);
+            liftMotorRight.set(value*-1/2);
         }
     }
 }
