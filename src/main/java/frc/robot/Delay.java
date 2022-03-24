@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import edu.wpi.first.wpilibj.Timer;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 
 public class Delay {
@@ -58,7 +59,11 @@ public class Delay {
                     continue;
                 }
 
-                new TalonSRX(key.ID).set(ControlMode.PercentOutput, key.speed);
+                if (key.ID == 4) {
+                    new VictorSPX(key.ID).set(ControlMode.PercentOutput, key.speed);
+                } else {
+                    new TalonSRX(key.ID).set(ControlMode.PercentOutput, key.speed);
+                }
                 MotorDleaysIt.remove();
             }
         }
