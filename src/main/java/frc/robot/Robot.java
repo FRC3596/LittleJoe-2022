@@ -17,7 +17,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     Delay.Enable();
-    RobotMappings.autoModeSub.Drive2Feet();
+    RobotMappings.autoModeSub.Run(); // Run auto code
   }
 
   @Override
@@ -30,18 +30,18 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    RobotMappings.ballLiftSub.SetArmLift(OI.RIGHT_Y_AXIS());
+    RobotMappings.ballLiftSub.SetArmLift(OI.RIGHT_Y_AXIS()); // Set arm motor power to joystick axis
 
-    RobotMappings.driveTrainSub.Drive();
+    RobotMappings.driveTrainSub.Drive(); // Run driveing tasks
 
-    Scheduler.getInstance().run();
+    Scheduler.getInstance().run(); // Run sceduled tasks
   }
 
   @Override
   public void disabledInit() {
-    Delay.Disable();
+    Delay.Disable(); // Disable and kill all delayed or delayed executing tasks
   }
-
+ 
   @Override
   public void disabledPeriodic() {}
 

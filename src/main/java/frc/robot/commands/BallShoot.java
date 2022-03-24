@@ -2,7 +2,6 @@ package frc.robot.commands;
 
 import frc.robot.RobotMappings;
 import frc.robot.subsystems.BallLiftSub;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class BallShoot extends Command {

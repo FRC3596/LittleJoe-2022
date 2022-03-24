@@ -1,8 +1,8 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.RobotMappings;
 import frc.robot.subsystems.BallLiftSub;
+import edu.wpi.first.wpilibj.command.Command;
 
 public class BallPickup extends Command {
 

@@ -1,19 +1,15 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
-import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallLiftSub extends Subsystem {
     public static VictorSPX ballMover = new VictorSPX(4);
-    // public static TalonSRX ballMover = new TalonSRX(4);
     public static CANSparkMax liftMotorLeft = new CANSparkMax(5, MotorType.kBrushless);
-    // public static TalonSRX liftMotorLeft = new TalonSRX(5);
     public static CANSparkMax liftMotorRight = new CANSparkMax(6, MotorType.kBrushless);
-    // public static TalonSRX liftMotorRight = new TalonSRX(6);
 
     public final int LiftStatus = 0;
     public final int ShootStatus = 1;

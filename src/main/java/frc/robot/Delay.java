@@ -1,13 +1,12 @@
 package frc.robot;
 
 import java.util.Iterator;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import java.util.ArrayList;
 
 import edu.wpi.first.wpilibj.Timer;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 
 public class Delay {
     private static Timer clock = new Timer();

@@ -37,10 +37,12 @@ public class OI {
         return joy.getRawAxis(1);
     }
 
+	// Left Triggure
 	public static double GetLT() {
 		return joy.getRawAxis(2);
 	}
 
+	// Right Triggure
 	public static double GetRT() {
 		return joy.getRawAxis(3);
 	}
@@ -59,7 +61,6 @@ public class OI {
 	{
 		RB.whenPressed(
 			new BallPickup(RobotMappings.ballLiftSub, true)); // pull in balls
-		
 		RB.whenReleased(
 			new BallPickup(RobotMappings.ballLiftSub, false)); // stop pulling in balls
 
