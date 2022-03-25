@@ -28,11 +28,11 @@ public class DriveTrainSub extends Subsystem {
             return;
         }
 
-        RightBottom.set(ControlMode.PercentOutput, ((OI.LEFT_Y_AXIS()*-1)-(OI.LEFT_X_AXIS()*-1)));
-        RightTop.set(ControlMode.PercentOutput, ((OI.LEFT_Y_AXIS()*-1)-(OI.LEFT_X_AXIS()*-1)));
+        RightBottom.set(ControlMode.PercentOutput, ((OI.LEFT_Y_AXIS()*-1)-(OI.LEFT_X_AXIS()*-1/2)));
+        RightTop.set(ControlMode.PercentOutput, ((OI.LEFT_Y_AXIS()*-1)-(OI.LEFT_X_AXIS()*-1/2)));
 
-        LeftBottom.set(ControlMode.PercentOutput, (OI.LEFT_Y_AXIS()-(OI.LEFT_X_AXIS()*-1)));
-        LeftTop.set(ControlMode.PercentOutput, (OI.LEFT_Y_AXIS()-(OI.LEFT_X_AXIS()*-1)));
+        LeftBottom.set(ControlMode.PercentOutput, (OI.LEFT_Y_AXIS()-(OI.LEFT_X_AXIS()*-1/2)));
+        LeftTop.set(ControlMode.PercentOutput, (OI.LEFT_Y_AXIS()-(OI.LEFT_X_AXIS()*-1/2)));
     }
 
     public void SetSpeed(double s) {
