@@ -19,6 +19,7 @@ public class DriveTrainSub extends Subsystem {
     protected void initDefaultCommand() {}
     
     public void Drive() {
+        /*
         if (InvertAxis) {
             RightBottom.set(ControlMode.PercentOutput, (((OI.LEFT_Y_AXIS()*-1)*-1)-(OI.LEFT_X_AXIS()*-1)));
             RightTop.set(ControlMode.PercentOutput, (((OI.LEFT_Y_AXIS()*-1)*-1)-(OI.LEFT_X_AXIS()*-1)));
@@ -27,6 +28,7 @@ public class DriveTrainSub extends Subsystem {
             LeftTop.set(ControlMode.PercentOutput, ((OI.LEFT_Y_AXIS()*-1)-(OI.LEFT_X_AXIS()*-1)));
             return;
         }
+        */
 
         RightBottom.set(ControlMode.PercentOutput, ((OI.LEFT_Y_AXIS()*-1)-(OI.LEFT_X_AXIS()*-1/2)));
         RightTop.set(ControlMode.PercentOutput, ((OI.LEFT_Y_AXIS()*-1)-(OI.LEFT_X_AXIS()*-1/2)));
