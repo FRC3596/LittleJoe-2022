@@ -68,6 +68,9 @@ public class OI {
 			new BallShoot(RobotMappings.ballLiftSub, true)); // fire loaded balls
 		RT.whenReleased(
 			new BallShoot(RobotMappings.ballLiftSub, false)); // stop firing loaded balls
+
+		A.whenPressed(
+			new ToggleYAx(RobotMappings.driveTrainSub));
 	}
 }
 

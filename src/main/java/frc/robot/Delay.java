@@ -24,6 +24,7 @@ public class Delay {
 
     public static void BotSpeed(double offset, double speed) {
         MotorDelays.add(new DelayItem(
+            false,
             true, 
             0, 
             clock.get() + offset, 
@@ -34,9 +35,21 @@ public class Delay {
     public static void MotorSpeed(int id, double offset, double speed) {
         MotorDelays.add(new DelayItem(
             false,
+            false,
             id,
             clock.get() + offset,
             speed)
+        );
+    }
+
+    public static void ArmSpeed(double offset, double speed) {
+        MotorDelays.add(
+            new DelayItem(
+                true,
+                false,
+                0,
+                offset,
+                speed)
         );
     }
 
@@ -52,6 +65,15 @@ public class Delay {
             DelayItem key = MotorDleaysIt.next();
 
             if (clock.get() > key.delay) {
+                /*
+                if (key.IsArm) {
+                    RobotMappings.ballLiftSub.SetArmLift(key.speed);
+                    
+                    MotorDleaysIt.remove();
+                    continue;
+                }
+                */
+
                 if (key.IsBot) {
                     RobotMappings.driveTrainSub.SetSpeed(key.speed);
     
@@ -75,13 +97,15 @@ public class Delay {
 }
 
 class DelayItem {
-    public DelayItem(boolean isbot, int id, double o, double s) {
+    public DelayItem(boolean isarm, boolean isbot, int id, double o, double s) {
+        IsArm = isarm;
         IsBot = isbot;
         ID = id;
         delay = o;
         speed = s;
     }
 
+    public final boolean IsArm;
     public final boolean IsBot;
     public final int ID;
     public final double delay;
