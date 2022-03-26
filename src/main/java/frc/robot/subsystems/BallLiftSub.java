@@ -68,12 +68,13 @@ public class BallLiftSub extends Subsystem {
             liftMotorLeft.set(0);
             liftMotorRight.set(0);
         }
+        /*
         else if (!RobotMappings.ArmBottomStatus.get() && value > 0)
         {
             liftMotorLeft.set(0);
             liftMotorRight.set(0);
         
-        } else {
+        }*/ else {
             liftMotorLeft.set(value/5);
             liftMotorRight.set(value*-1/5);
         }
